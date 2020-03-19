@@ -10,6 +10,7 @@ export class InfectedInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+	
   }
 
 }
