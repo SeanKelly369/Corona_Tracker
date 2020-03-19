@@ -10,6 +10,7 @@ export class IrelandMapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

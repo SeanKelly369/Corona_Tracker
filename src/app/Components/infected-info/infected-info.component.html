@@ -1,39 +1,84 @@
-<div>
+<div class="container" style="margin-top:100px;">
   <!-- TODO add form validation -->
   <!-- May need to change the action to get it to work in firebase.  Working example in Cosmet repository -->
-  <form class="form-horizontal" action="submit">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="firstName">First Name:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="firstName" placeholder="Enter a first name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">When first felt unwell:</label>
-      <div class="col-sm-10">
-        <input type="date" class="form-control" id="firstIllDay" placeholder="Date when first ill">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </form>
+  <div class="card">
+    <div class="card-header text-center"> Pin my Covid-19 Diagnosis</div>
+    <div class="card-body">
+    <div style="">
+        <p>This form is used to collect user diagnosis of <strong>Covid-19</strong>. The intent of the data is to provide reassurance for the irish public so that they can
+          plan to isolate more seriously. </p>
+      <div class="row " style="margin: 2%;">
+        <form class="col-md-12 col-lg-12" action="submit">
 
-  <div class="form-horizontal">
-    <span>
-      <label class="radio-inline"><input type="radio" name="optradio" checked>Fever</label>
-    </span>
-    <span>
-      <label class="radio-inline"><input type="radio" name="optradio">Cough</label>
-    </span>
-    <span>
-      <label class="radio-inline"><input type="radio" name="optradio">Shortness of Breath</label>
-    </span>
+      <div class="row" style="padding-bottom:2%;">
+
+              <div class="col-md-4 col-lg-4" >
+                <div class="form-group">
+                    <label class="control-label " for="pwd"><strong>Date Diagnosed</strong></label>
+                      <p> This is whatever date you're comfortable with sharing. Cases that have been submitted longer than 14 days ago will not show on the grid. </p>
+                      <div><input type="date" class="form-control" id="firstIllDay" placeholder="Date when first ill"></div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-lg-4" >
+                <strong> Gender </strong>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="GenderMale" name="Gender">
+                    <label class="custom-control-label" for="GenderMale">Male</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="GenderFemale" name="Gender" >
+                    <label class="custom-control-label" for="GenderFemale">Female</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="GenderTransgender" name="Gender">
+                    <label class="custom-control-label" for="GenderTransgender">Transgender</label>
+                  </div>
+              </div>
+
+          <div class="col-md-4 col-lg-4" style="">
+
+            <strong>Age bracket</strong>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age1" name="Age">
+              <label class="custom-control-label" for="Age1">(0-18)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age2" name="Age" >
+              <label class="custom-control-label" for="Age2">(18-28)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age3" name="Age" value="(29-38)">
+              <label class="custom-control-label" for="Age3">(29-38)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age4" name="Age">
+              <label class="custom-control-label" for="Age4">(39-48)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age5" name="Age">
+              <label class="custom-control-label" for="Age5">(49-58)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age6" name="Age">
+              <label class="custom-control-label" for="Age6">(59-68)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age7" name="Age">
+              <label class="custom-control-label" for="Age7">(69-78)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="Age8" name="Age">
+              <label class="custom-control-label" for="Age8">(79-89+)</label>
+            </div>
+          </div>
+
+    </div>
+      <div class="form-group col-md-12 col-lg-12 text-center" style="">
+        <button type="submit" class="btn btn-primary text-center" style="width:50%;" >Pin my case!</button>
+      </div>
+    </form>
+  </div>
   </div>
 </div>
