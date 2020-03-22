@@ -13,6 +13,7 @@ export class IrelandMapComponent implements OnInit {
   mapFeatures: any;
   airports: any;
   regions = [];
+  showModel = true;
 
   public ngOnInit() {
 
@@ -22,29 +23,23 @@ export class IrelandMapComponent implements OnInit {
 
     const projection = d3.geoMercator()
       .scale(12090)
-      .center([-9.6, 53.47])
+      .center([-9.8, 53.47])
       .translate([ width / 2, height / 2])
 
     const svg = d3.select('#ireland').append('svg')
-      .attr('width', 1600)
+      .attr('width', 1400)
       .attr('height', height);
     const path = d3.geoPath()
       .projection(projection);
     const g = svg.append('g');
     g.attr('class', 'map');
 
-    // console.log(g);
-
     d3.json('../assets/maps/ireland_counties.geojson')
 
       .then((topology: any) => {
-        // console.log(topology.features);
-
-        // console.log(topology.features);
         for ( let i = 0; i < 35; i++) {
           this.regions.push(topology.features[i].properties.name);
         }
-        // console.log(this.regions);
 
         g.selectAll('path')
           .data(topology.features)
@@ -105,7 +100,24 @@ export class IrelandMapComponent implements OnInit {
                 .text('');
               }
             }
+          })
+          .on('click', d => {
+            d3.select('.countyNames')
+            .style('display', 'none');
+
+            d3.select('.countyModal')
+            .style('width', '660px')
+            .style('height', '660px')
+            .style('background-color', '#ccccccdd')
+            .style('border-radius', '12px')
+            .style('position', 'fixed')
+            .style('display', 'relative')
+            .style('transform', `translate( 500px, -2028px )`);
           });
         });
-  }
+      }
+    showHideModal() {
+      document.getElementById('worldMap').style.display = 'none';
+
+    }
 }

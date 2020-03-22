@@ -5,3 +5,21 @@
 .countyNames {
   z-index: 12;
 }
+
+.countyModal {
+  z-index: 13;
+}
+
+#modal {
+  display: block;
+}
+
+#close {
+
+  float: right;
+  margin: 1rem;
+  margin-right: 1.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+}

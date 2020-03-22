@@ -5,7 +5,10 @@
 <div id="vis"></div>
 
 <div class="selectedCountry"></div>
-
 <div id=worldMap>
-    <div class="countyNames"></div>
+    <div id="modal" class="countyModal" (click)="this.showHideModal()">
+        <div id=close>X</div>
+    </div>
 </div>
+<div class="countyNames"></div>
+
