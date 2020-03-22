@@ -1,3 +1,7 @@
 .counties {
   fill: rgb(51, 196, 128);
 }
+
+.countyNames {
+  z-index: 12;
+}

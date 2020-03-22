@@ -40,10 +40,11 @@ export class IrelandMapComponent implements OnInit {
       .then((topology: any) => {
         // console.log(topology.features);
 
+        // console.log(topology.features);
         for ( let i = 0; i < 35; i++) {
           this.regions.push(topology.features[i].properties.name);
         }
-        console.log(this.regions);
+        // console.log(this.regions);
 
         g.selectAll('path')
           .data(topology.features)
@@ -54,22 +55,45 @@ export class IrelandMapComponent implements OnInit {
           .attr('class', 'counties')
           .attr('fill', '#218F5B')
           .attr('stroke', '#A0FFD3')
+          .attr('cursor', 'pointer')
           .on('mouseover', function(d) {
-            // const mousePos = d3.mouse(this);
-            // const posX = Math.floor(mousePos[0]);
-            // const posY = Math.floor(mousePos[1]);
+            const mousePos = d3.mouse(this);
+            const posX = Math.floor(mousePos[0]);
+            const posY = Math.floor(mousePos[1]);
             for ( let i = 0; i < 35; i++) {
               if ( d.properties.name === topology.features[i].properties.name ) {
                 d3.select(this)
-                .style('fill', 'rgb(51, 196, 128)')
-                // .style('transform', `translate( ${posX + 8}px, ${posY + 10}px )`)
-                .style('background-color', '#33333388')
+                .style('fill', 'rgb(51, 196, 128)');
+
+                d3.select('.countyNames')
+                .style('transform', `translate( ${posX + 60}px, ${posY - 1470}px )`)
+                .style('background-color', '#999999ee')
+                .style('width', '200px')
+                .style('color', 'white')
                 .style('padding', '4px')
                 .style('padding-left', '8px')
                 .style('padding-right', '8px')
                 .style('border-radius', '2px')
                 .style('display', 'block')
                 .text(d.properties.name);
+                if (d.properties.name === 'Laoighis') {
+                  d3.select('.countyNames')
+                  .text('Laois')
+                }
+                if (d.properties.name_alt === 'Corcaigh city') {
+                  d3.select('.countyNames')
+                  .text('Cork City');
+                }
+                if (d.properties.name_alt === 'Gaillimh city') {
+                  d3.select('.countyNames')
+                  .text('Galway City');
+                }
+                if (d.properties.name_alt === null) {
+                  d3.select('.countyNames')
+                  .text('outer island');
+                }
+
+                console.log(d.properties.name_alt);
               }
             }
           })
